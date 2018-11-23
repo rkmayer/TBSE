@@ -26,6 +26,13 @@
 			padding: 5px;
 		}
 		
+		div.title{
+			border: 2px solid silver;
+			border-radius: 100px;
+			background: silver;
+			padding:20px;
+		}
+		
 		p.withpadding{
 			margin:center;
 			width:100%;
@@ -46,7 +53,9 @@
 			?>
 			<!-- HTML Code -->
 			<div class='withpadding'>
-				<h1 class='text-center withpadding'><b style="font-size:48px;">Thunder Bay Stock Exchange</b></h1>
+				<div class="title">
+					<h1 class='text-center withpadding'><b style="font-size:48px;">Thunder Bay Stock Exchange</b></h1>
+				</div>
 				<p class='text-center withpadding'>
 					Your favourite simulated market for practice of stock buying, selling, and trading!
 				</p>
