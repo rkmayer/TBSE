@@ -8,13 +8,8 @@
 	
 	<link href='https://fonts.googleapis.com/css?family=Glegoo' rel='stylesheet'>
 	
-	<link rel="stylesheet" type="text/css" href="includes/button_styles.css">
+	<link rel="stylesheet" type="text/css" href="includes/TBSE_styles.css">
 	<style>
-		*{
-			font-family: 'Glegoo';
-			font-size: 20px;
-		}
-		
 		body{
 			background: grey;
 		}
@@ -44,13 +39,13 @@
 	</style>
 	</head>
 	
-	<body>
+	<body style="background: #7a7a7a;">
 		
 			<?php
 				include 'includes/header.html';
 			?>
 			<!-- HTML Code -->
-			<div class='jumbotron jumbotron-fluid withpadding'>
+			<div class='withpadding'>
 				<h1 class='text-center withpadding'><b style="font-size:38px;">Thunder Bay Stock Exchange - TBSE</b></h1>
 				<p class='text-center withpadding'>
 					Your favourite simulated market for practice of stock buying, selling, and trading!

@@ -72,7 +72,7 @@
 	}
 ?>
 <head>
-	<link rel="stylesheet" type="text/css" href="includes/button_styles.css">
+	<link rel="stylesheet" type="text/css" href="includes/TBSE_styles.css">
 	<link href='https://fonts.googleapis.com/css?family=Glegoo' rel='stylesheet'>
 </head>
 <style>
