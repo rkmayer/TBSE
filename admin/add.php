@@ -3,7 +3,7 @@
 		
 <?php
 			
-	include '../includes/header.html'; 
+	include '../includes/header_logged_in.html'; 
 	require('../mysqli_connect.php'); 
 	session_start();//Start session array to load data
 	$username = $_SESSION['username'];
@@ -93,7 +93,6 @@
 		font-size: 20px;
 	}
 </style>
-
 <body>
 	<center>
 	<h1>Add New Stock</h1>
