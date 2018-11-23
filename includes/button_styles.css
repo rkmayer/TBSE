@@ -1,0 +1,41 @@
+.nice_button_red{
+	transition-duration:1s;
+	border: 2px solid red;
+	border-radius: 8px;
+	background-color: white;
+	color: black;
+}
+.nice_button_red:hover{
+	transition-duration:1s;
+	border-radius: 8px;
+	background-color: red;
+	color: white;
+}
+
+.nice_button_green{
+	transition-duration:1s;
+	border: 2px solid green;
+	border-radius: 8px;
+	background-color: white;
+	color: black;
+}
+.nice_button_green:hover{
+	transition-duration:1s;
+	border-radius: 8px;
+	background-color: green;
+	color: white;
+}
+
+.nice_button_blue{
+	transition-duration:1s;
+	border-radius: 8px;
+	border: 2px solid blue;
+	background-color: white;
+	color: black;
+}
+.nice_button_blue:hover{
+	transition-duration:1s;
+	border-radius: 8px;
+	background-color: blue;
+	color: white;
+}
