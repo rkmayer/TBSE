@@ -82,8 +82,8 @@
 		
 		<div class="form-group left-element">
 		<form action="admin.php" method="post">
-			<p>Stock Code: <input type="text" class="form-control" name="code" size="3" maxlength="3" value="<?php if (isset($_POST['code'])) echo $_POST['code']; ?>"></p>
-			<p>New Price: <input type="number" class="form-control" name="price" size="20" maxlength="12" value="<?php if (isset($_POST['price'])) echo $_POST['price']; ?>" ></p>
+			<p>Stock Code: <input type="text" style="background: #999999; color:black;" class="form-control grey_background" name="code" size="3" maxlength="3" value="<?php if (isset($_POST['code'])) echo $_POST['code']; ?>"></p>
+			<p>New Price: <input type="number" style="background: #999999; color:black;" class="form-control grey_background" name="price" size="20" maxlength="12" value="<?php if (isset($_POST['price'])) echo $_POST['price']; ?>" ></p>
 			<p>Remove from Active Trading <input type="checkbox" class="form-control" name="delete" value="yes"></p>
 			<p><input type="submit" class="nice_button_green" name="Update Stock" value="Update/Remove Stock"></p>
 		</form>

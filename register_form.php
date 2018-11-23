@@ -98,10 +98,10 @@
 <!-- Have to allign the fields still-->
 <div class="form-group centered-element">
 <form action="register_form.php" method="post">
-	<p>Username: <input type="text" style="color:black;" class="form-control grey_background" name="username" size="20" maxlength="30"<?php if (isset($_POST['username'])) echo $_POST['username']; ?>"></p>
-	<p>Email Address: <input type="email" style="color:black;" class="form-control grey_background" name="email" size="15" maxlength="50"<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"></p>
-	<p>Password: <input type="password" style="color:black;" class="form-control grey_background" name="pass" size="20" maxlength="30"<?php if (isset($_POST['pass'])) echo $_POST['pass']; ?>" ></p>
-	<p>Confirm Password: <input type="password" style="color:black;" class="form-control grey_background" name="confirm" size="12" maxlength="30"<?php if (isset($_POST['confirm'])) echo $_POST['confirm']; ?>" ></p>
+	<p>Username: <input type="text" style="background: #999999; color:black;" class="form-control grey_background" name="username" size="20" maxlength="30" <?php if (isset($_POST['username'])) echo $_POST['username']; ?>></p>
+	<p>Email Address: <input type="email" style="background: #999999; color:black;" class="form-control grey_background" name="email" size="15" maxlength="50" <?php if (isset($_POST['email'])) echo $_POST['email']; ?>></p>
+	<p>Password: <input type="password" style="background: #999999; color:black;" class="form-control grey_background" name="pass" size="20" maxlength="30" <?php if (isset($_POST['pass'])) echo $_POST['pass']; ?>></p>
+	<p>Confirm Password: <input type="password" style="background: #999999; color:black;" class="form-control grey_background" name="confirm" size="12" maxlength="30" <?php if (isset($_POST['confirm'])) echo $_POST['confirm']; ?>></p>
 	<p><input type="submit" class="nice_button_blue submit-btn" name="submit" value="Register"></p>
 </form>
 </center>

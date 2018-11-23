@@ -93,15 +93,15 @@
 		font-size: 20px;
 	}
 </style>
-<body class="grey_background">
+<body style="background: #999999; color:black;">
 	<center>
 	<h1>Add New Stock</h1>
 	<p>Please fill in the form to add a new stock to the market</p>
 	<div class="form-group centered-element">
 		<form action="add.php" method="post">
-			<p>Stock Code: <input type="text" class="form-control" name="code" size="3" maxlength="3" value="<?php if (isset($_POST['code'])) echo $_POST['code']; ?>"></p>
-			<p>Company Name: <input type="text" class="form-control" name="name" size="20" maxlength="30" value="<?php if (isset($_POST['name'])) echo $_POST['name']; ?>" ></p>
-			<p>Initial Price: <input type="number" class="form-control" name="price" size="20" maxlength="12" value="<?php if (isset($_POST['price'])) echo $_POST['price']; ?>" ></p>
+			<p>Stock Code: <input type="text" style="background: #999999; color:black;" class="form-control grey_background" name="code" size="3" maxlength="3" value="<?php if (isset($_POST['code'])) echo $_POST['code']; ?>"></p>
+			<p>Company Name: <input type="text" style="background: #999999; color:black;" class="form-control grey_background" name="name" size="20" maxlength="30" value="<?php if (isset($_POST['name'])) echo $_POST['name']; ?>" ></p>
+			<p>Initial Price: <input type="number" style="background: #999999; color:black;" class="form-control grey_background" name="price" size="20" maxlength="12" value="<?php if (isset($_POST['price'])) echo $_POST['price']; ?>" ></p>
 			<p><input type="submit" class="submit-btn nice_button_blue " name="Enter" value="Enter"></p>
 		</form>
 	</div>
