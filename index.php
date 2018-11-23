@@ -57,10 +57,23 @@
 					<button type='button' class='nice_button_blue btn-lg' onclick=location.href='login_form.php'>LOGIN</button>
 					<button type='button' class='nice_button_red btn-lg' onclick=location.href='register_form.php' >REGISTER</button>
 				</div>
-				
 				</center>
-
-	
+			</div>
+			
+			<div style="padding:20px;border:2px solid lightgrey;">
+				<h5 style="text-decoration: underline;">Info:</h5>
+				<p>
+					TBSE is a project brought to you by <b>Mekaal Swerhun and Ryan Mayer</b>
+					for their final project in Database Management class at Lakehead University,
+					taught by their incredible professor 
+					<a href="http://www.yiminyang.com/"><b>Dr. Yimin Yang</b></a>
+					<br>
+					<br>
+					Our intent is to allow people to have fun interacting with the stock market. People
+					can experience a little bit of the drastic changes that the market goes through
+					to make them rich, poor, or potentially stay even.
+				</p>
+			</div>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
