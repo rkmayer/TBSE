@@ -11,7 +11,7 @@
 		}
 	</style>
 </head>
-<body>
+<body class="grey_background">
 	<footer class="footer">
 		<center>
 		<div class="container">

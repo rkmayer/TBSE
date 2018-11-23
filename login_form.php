@@ -98,15 +98,15 @@
 	}
 </style>
 
-<body>
+<body class="grey_background">
 <center>
 <h1>Login</h1>
 
 <div class="form-group centered-element">
 <form action="login_form.php" method="post">
-	<p>Username: <input type="text" class="form-control" name="username" size="20" maxlength="30" value="<?php if (isset($_POST['username'])) echo $_POST['username']; ?>"></p>
-	<p>Password: <input type="password" class="form-control" name="pass" size="20" maxlength="30" value="<?php if (isset($_POST['pass'])) echo $_POST['pass']; ?>" ></p>
-	<p>Login as admin: <input type="checkbox" class="form-control" name="admin" value="yes"></p>
+	<p>Username: <input type="text" style="color:black;" class="form-control grey-background" name="username" size="20" maxlength="30" value="<?php if (isset($_POST['username'])) echo $_POST['username']; ?>"></p>
+	<p>Password: <input type="password" style="color:black;" class="form-control grey-background" name="pass" size="20" maxlength="30" value="<?php if (isset($_POST['pass'])) echo $_POST['pass']; ?>" ></p>
+	<p>Login as admin: <input type="checkbox" style="color:black;" class="form-control grey-background" name="admin" value="yes"></p>
 	<p><input type="submit" class="nice_button_blue submit-btn" name="login" value="Login"></p>
 </form>
 </center>

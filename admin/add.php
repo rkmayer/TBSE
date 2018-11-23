@@ -93,7 +93,7 @@
 		font-size: 20px;
 	}
 </style>
-<body>
+<body class="grey_background">
 	<center>
 	<h1>Add New Stock</h1>
 	<p>Please fill in the form to add a new stock to the market</p>

@@ -11,7 +11,7 @@
 </style>
 </head>
 
-<body>
+<body class="grey_background">
 	<?php
 	include 'includes/header_logged_in.html'; 
 	require('mysqli_connect.php'); 

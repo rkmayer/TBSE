@@ -19,7 +19,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Glegoo' rel='stylesheet'>
 		<link rel="stylesheet" type="text/css" href="includes/TBSE_styles.css">
 	</head>
-	<body>
+	<body class="grey_background">
 		
 	<?php
 			
