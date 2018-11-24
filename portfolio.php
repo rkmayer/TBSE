@@ -44,22 +44,19 @@
 			echo '<table width="80%">
 				  <thead><tr>
 				  
-					<th># of Stocks</th>
-					<th>Stock Code</th>
-					<th>Bought price</th>
-					<th>Current price</th>
-					<th>Possible Gain/loss ($)</th>
-					<th>Buy stock</th>
-					<th>Sell stock</th>
+					<th>Amount</th>
+					<th>Code</th>
+					<th>Bought Price</th>
+					<th>Current Price</th>
+					<th>Possible Gain/Loss</th>
+
 				  </tr></thead><tbody>
 				';				
 			while($row = $run_query->fetch_assoc()){ //While there are rows in the table not fetched 
 				//Display their data
 				$profit = (($row["num_stocks"] * $row["stock_price"]) - ($row["num_stocks"] * $row["bought_price"]));
 				echo '<tr><td>' .$row["num_stocks"] .'</td><td>' .$row["stock_code"] .'</td><td>'. $row["bought_price"] .'</td><td>'. $row["stock_price"]
-					.'</td><td>'. $profit 
-					.'</td><td>'. '<button type="button" class="btn" onclick="buy.php">Buy</button>' 
-					.'</td><td>'. '<button type="button" class="btn" onclick="sell.php">Sell</button>' 
+					.'</td><td>'. $profit
 					. '</td></tr>';
 					//Tried using functions but went with opening up a new buy or sell page instead					
 			}
