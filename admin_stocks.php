@@ -46,7 +46,7 @@
 			echo '<tr><td>' .$row["stock_code"] 
 			.'</td><td>' .$row["stock_name"] 
 			.'</td><td>'. $row["stock_price"]
-			.'</td><td><button type="button" class="nice_button_blue" onclick=location.href="login_form.php">Buy</button></td></tr>';			
+			.'</td></tr>';			
 		}
 		echo '</tbody></table>'; // Close the table.
 	}else{
@@ -54,7 +54,7 @@
 	}			
 	echo "</center>";			
 
-	include 'includes/footer_back.php'; 
+	include '../includes/footer_admin.html';
 	?>
 	<!-- HTML Code -->
 
