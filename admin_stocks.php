@@ -53,8 +53,16 @@
 		echo "No stocks listed";	
 	}			
 	echo "</center>";			
-
-	include '../includes/footer_admin.html';
+	
+	echo "
+	<center>
+	<p>
+		<br>
+		<button type='button' class='nice_button_blue' onclick=location.href='admin.php' >Return to Admin Page</button>
+	</p>
+	</center>
+	";
+	
 	?>
 	<!-- HTML Code -->
 

@@ -75,7 +75,7 @@
 					TBSE is a project brought to you by <b>Mekaal Swerhun and Ryan Mayer</b>
 					for their final project in Database Management class at Lakehead University,
 					taught by their incredible professor 
-					<a href="http://www.yiminyang.com/"><b>Dr. Yimin Yang</b></a>
+					<a href="http://www.yiminyang.com/"><b style="color: blue">Dr. Yimin Yang</b></a>
 					<br>
 					<br>
 					Our intent is to allow people to have fun interacting with the stock market. People

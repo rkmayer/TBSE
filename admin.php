@@ -92,7 +92,7 @@
 			
 		<!--<p><button type='button' class='btn btn-caution'onclick=location.href='admin/update.php'>Update stock</button></p>-->
 		<p><button type='button' class='nice_button_blue' onclick=location.href='admin/add.php'>Add Stock</button></p>
-		<p><button type="button" class="nice_button_green" onclick=location.href="admin/admin_stocks.php">View Stocks</button></p>
+		<p><button type="button" class="nice_button_green" onclick=location.href="admin_stocks.php">View Stocks</button></p>
 			
 			<!-- HTML Code -->
 
