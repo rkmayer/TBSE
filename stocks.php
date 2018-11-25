@@ -12,13 +12,27 @@
 	.container form,
 	.container form div {
 		display: inline;
-	}	
+	}
+	
+	.nice_button_green{
+		transition-duration:1s;
+		border: 2px solid #048c0b;
+		border-radius: 8px;
+		background-color: #999999;
+		color: black;
+	}
+	.nice_button_green:hover{
+		transition-duration:1s;
+		border-radius: 8px;
+		background-color: #048c0b;
+		color: white;
+	}
 </style>
 </head>
 
 <body class="grey_background">
 	<?php
-	include 'includes/header_logged_in.html'; 
+	include 'includes/header_logged_in.html';
 	require_once ('mysqli_connect.php'); 
 	$colour =null;
 	
@@ -115,7 +129,7 @@
 					 <input name=start type=hidden value='".($start-$display)."';>
 					 <input name=current type=hidden value='".($current-1)."';>
 					 <input name=sort type=hidden value='".$sort."';>
-					 <input type=submit name=submit value = Last_Page> </form>"; 
+					 <input style='nice-button-green submit-btn' type='submit' name='submit' value='Last Page'> </form>"; 
 	}
 	
 	//Next Page Button
@@ -125,7 +139,7 @@
 					 <input name=start type=hidden value='".($start+$display)."';>
 					 <input name=current type=hidden value='".($current+1)."';>
 					 <input name=sort type=hidden value='".$sort."';>
-					 <input type=submit name=submit value = Next_Page> </form></div>"; 
+					 <input style='nice_button_green submit_btn' type='submit' name='submit' value='Next Page'> </form></div>"; 
 	}
 	
 	echo "</center>";	
