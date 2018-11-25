@@ -93,7 +93,7 @@
 			<p><input type="submit" class="nice_button_blue" name="Update Stock" value="Update Stock">
 		</form>
 		</div>
-		<button type='button' class='nice_button_blue' onclick=location.href='admin/add.php'>Add Stock</button></p>
+		<button type='button' class='nice_button_blue' onclick=location.href='add.php'>Add Stock</button></p>
 		<?php include 'includes/footer.html'; 	?>	
 
 
