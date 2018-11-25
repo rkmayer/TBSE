@@ -74,7 +74,7 @@
 					$query = "insert into stocks (stock_code, stock_name, stock_price) VALUES ('$code', '$name', '$price')"; 
 					$run_query = @mysqli_query($data_con, $query); // Run the query.			
 					if ($run_query) {//If it ran	
-						echo '<center><h1>Thank you the stock has been added!</h1></center>';
+						echo '<center><h3 style="width:90%">Thank you! <br> The stock has been added</h3></center>';
 					} else {
 						echo '<center><h1>Error!</h1> <p class="error">Stock addition unsuccessful due to system errors!</p></center>'; //System Error
 						echo '<p>' . mysqli_error($data_con) . '<br><br>Query: ' . $query . '</p>'; //Show Debug
