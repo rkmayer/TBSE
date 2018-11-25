@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<link rel="stylesheet" type="text/css" href="includes/TBSE_styles.css">
-	<link href='https://fonts.googleapis.com/css?family=Glegoo' rel='stylesheet'>
-	
-	<style>
-		*{
-			font-family: 'Glegoo';
-			font-size: 20px;
-		}
-	</style>
-</head>
-<body class="grey_background">
-	<!-- <footer class="footer"> -->
+<body>
+	 <footer class="footer">
 		<center>
 			<br>
-			<p><button type="button" class="nice_button_green" onclick=location.href="stocks.php">View Stocks</button></p>
+			<?php
+			//session_start();//Start session array to load data
+			$admin = $_SESSION['admin'];
+			if($admin == true){
+				echo "<p><button type='button' class='nice_button_green' onclick=location.href='stocks.php'>View Stocks</button></p>";
+			}else{
+				echo "<p><button type='button' class='nice_button_green' onclick=location.href='user_stocks.php'>View Stocks</button></p>";
+			}	
+			?>
 		</center>
 	<!-- </footer> -->
 </body>

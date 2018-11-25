@@ -74,7 +74,7 @@
 				<p>
 					TBSE is a project brought to you by <b>Mekaal Swerhun and Ryan Mayer</b>
 					for their final project in Database Management class at Lakehead University,
-					taught by their incredible professor 
+					taught by their professor 
 					<a href="http://www.yiminyang.com/"><b style="color: blue">Dr. Yimin Yang</b></a>
 					<br>
 					<br>

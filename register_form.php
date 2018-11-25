@@ -1,3 +1,28 @@
+
+<head>
+<link rel="stylesheet" type="text/css" href="includes/TBSE_styles.css">
+<link href='https://fonts.googleapis.com/css?family=Glegoo' rel='stylesheet'>
+</head>
+<style>
+	*{
+		font-family: 'Glegoo';
+		font-size: 20px;
+	}
+
+	div.centered-element{
+		margin:auto;
+		width: 50%;
+		border: 2px solid lightgrey;
+		padding: 15px;
+	}
+	
+	input.submit-btn{
+		margin:center;
+		width:25%;
+	}
+</style>
+
+
 <?php
 	//Registration form for new customers
 	//Add header
@@ -6,7 +31,7 @@
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		//Connect to database
-		require('mysqli_connect.php'); 
+		require_once ('mysqli_connect.php'); 
 	
 		$errors = []; //If this isn't empty don't add to database
 
@@ -34,12 +59,24 @@
 		}else{
 			$errors[] = 'Please enter a password!';
 		}
-	
+		
+		//Use database	
+		$query= "use TBSE";
+		$run_query = @mysqli_query($data_con, $query);
+		
+		$query= "Select username from customer";
+		$run_query = @mysqli_query($data_con, $query); // Run the query.
+		
+		//Check for already used usernames
+		while($row = $run_query->fetch_assoc()){ //While there are rows in the table not fetched 
+			if($row["username"] == $username){
+				$errors[] = 'Username already taken!';
+			}
+		}
+		
+		//Add to customer table
 		if(empty($errors)){
-			//Add to customer table
 			
-			$query= "use TBSE";
-			$run_query = @mysqli_query($data_con, $query);
 			$query = "insert into customer (username, email, password) VALUES ('$username', '$email', '$password')"; //Add to table
 			$run_query = @mysqli_query($data_con, $query); // Run the query.
 
@@ -68,34 +105,10 @@
 	
 ?>
 
-<head>
-<link rel="stylesheet" type="text/css" href="includes/TBSE_styles.css">
-<link href='https://fonts.googleapis.com/css?family=Glegoo' rel='stylesheet'>
-</head>
-<style>
-	*{
-		font-family: 'Glegoo';
-		font-size: 20px;
-	}
-
-	div.centered-element{
-		margin:auto;
-		width: 50%;
-		border: 2px solid lightgrey;
-		padding: 15px;
-	}
-	
-	input.submit-btn{
-		margin:center;
-		width:25%;
-	}
-</style>
-
 <body class="grey_background">
 <center>
 <h1>Register New Account</h1>
 
-<!-- Have to allign the fields still-->
 <div class="form-group centered-element">
 <form action="register_form.php" method="post">
 	<p>Username: <input type="text" style="background: #999999; color:black;" class="form-control grey_background" name="username" size="20" maxlength="30" <?php if (isset($_POST['username'])) echo $_POST['username']; ?>></p>

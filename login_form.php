@@ -1,3 +1,25 @@
+<head>
+<link rel="stylesheet" type="text/css" href="includes/TBSE_styles.css">
+<link href='https://fonts.googleapis.com/css?family=Glegoo' rel='stylesheet'>
+</head>
+<style>
+	*{
+		font-family: 'Glegoo';
+		font-size: 20px;
+	}
+		
+	div.centered-element{
+		margin:auto;
+		width: 50%;
+		border: 2px solid lightgrey;
+		padding: 15px;
+	}
+	input.submit-btn{
+		margin:center;
+		width:25%;
+	}
+</style>
+
 <?php
 	//login form
 	//This would be required by other pages to show details?
@@ -7,7 +29,7 @@
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		//Connect to database
-		require('mysqli_connect.php'); 
+		require_once ('mysqli_connect.php'); 
 	
 		$errors = []; //If this isn't empty don't add to database
 
@@ -76,27 +98,6 @@
 	}//End of login
 	
 ?>
-<head>
-<link rel="stylesheet" type="text/css" href="includes/TBSE_styles.css">
-<link href='https://fonts.googleapis.com/css?family=Glegoo' rel='stylesheet'>
-</head>
-<style>
-	*{
-		font-family: 'Glegoo';
-		font-size: 20px;
-	}
-		
-	div.centered-element{
-		margin:auto;
-		width: 50%;
-		border: 2px solid lightgrey;
-		padding: 15px;
-	}
-	input.submit-btn{
-		margin:center;
-		width:25%;
-	}
-</style>
 
 <body class="grey_background">
 <center>

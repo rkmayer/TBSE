@@ -1,76 +1,4 @@
 <!-- Admin add page -->
-
-		
-<?php
-			
-	include '../includes/header_logged_in.html'; 
-	require('../mysqli_connect.php'); 
-	session_start();//Start session array to load data
-	$username = $_SESSION['username'];
-	$admin =  $_SESSION['admin'];
-	$errors = []; //If this isn't empty don't add to database
-	
-	//Use database
-	$query= "use TBSE";
-	$run_query = @mysqli_query($data_con, $query);
-	
-	
-	if($admin == true){
-		if ($_SERVER['REQUEST_METHOD'] == 'POST') {//Check if a request was made
-			//Check if code is empty 
-			if (empty($_POST['code'])){
-				$errors[] = 'Empty code!';
-			}else{
-				$code = mysqli_real_escape_string($data_con, trim($_POST['code']));
-			}
-		
-			//Check if name is empty 
-			if (empty($_POST['name'])){
-				$errors[] = 'Empty company name!';
-			}else{
-				$name = mysqli_real_escape_string($data_con, trim($_POST['name']));
-			}		
-		
-			//Check if price is empty 
-			if (empty($_POST['price'])){
-				$errors[] = 'Empty initial offering price!';
-			}else{
-				$price = mysqli_real_escape_string($data_con, trim($_POST['price']));
-			}	
-	
-			if(empty($errors)){//If error free
-			
-				//Insert
-				$query = "insert into stocks (stock_code, stock_name, stock_price) VALUES ('$code', '$name', '$price')"; 
-				$run_query = @mysqli_query($data_con, $query); // Run the query.			
-				if ($run_query) {//If it ran	
-					echo '<h1>Thank you the stock has been added!</h1>';
-				} else {
-					echo '<center><h1>Error!</h1> <p class="error">Stock addition unsuccessful due to system errors!</p></center>'; //System Error
-					echo '<p>' . mysqli_error($data_con) . '<br><br>Query: ' . $query . '</p>'; //Show Debug
-				}
-				mysqli_close($data_con); //close connection
-				include '../includes/footer_admin.html';
-				exit();
-			
-			} else { //Report user errors
-				echo '<center><h1>Error!</h1> <p class="error">';
-				foreach ($errors as $message) { echo " - $message<br>\n";}
-				echo '</p></center>';
-			} 
-		}
-		mysqli_close($data_con); //close connection		
-		
-		
-		
-		
-		echo "</center>";
-		//include '../includes/footer_back.php'; 
-	}else{
-		echo "<center><h2>Error you are not an admin! </h2>";
-		//include '../includes/footer.html'; 
-	}
-?>
 <head>
 	<link rel="stylesheet" type="text/css" href="includes/TBSE_styles.css">
 	<link href='https://fonts.googleapis.com/css?family=Glegoo' rel='stylesheet'>
@@ -92,7 +20,88 @@
 		font-family: 'Glegoo';
 		font-size: 20px;
 	}
-</style>
+</style>		
+<?php
+			
+	include '../includes/header_logged_in.html'; 
+	require_once ('../mysqli_connect.php'); 
+	session_start();//Start session array to load data
+	if (isset($_SESSION['username']) && isset($_SESSION['admin'])) {	
+		$username = $_SESSION['username'];
+		$admin =  $_SESSION['admin'];
+		$errors = []; //If this isn't empty don't add to database
+	
+		//Use database
+		$query= "use TBSE";
+		$run_query = @mysqli_query($data_con, $query);
+	
+	
+		if($admin == true){
+			if ($_SERVER['REQUEST_METHOD'] == 'POST') {//Check if a request was made
+				//Check if code is empty 
+				if (empty($_POST['code'])){
+					$errors[] = 'Empty code!';
+				}else{
+					$code = mysqli_real_escape_string($data_con, trim($_POST['code']));
+				}
+		
+				//Check if name is empty 
+				if (empty($_POST['name'])){
+					$errors[] = 'Empty company name!';
+				}else{
+					$name = mysqli_real_escape_string($data_con, trim($_POST['name']));
+				}		
+		
+				//Check if price is empty 
+				if (empty($_POST['price'])){
+					$errors[] = 'Empty initial offering price!';
+				}else{
+					$price = mysqli_real_escape_string($data_con, trim($_POST['price']));
+				}	
+				$query= "Select stock_code from stocks";
+				$run_query = @mysqli_query($data_con, $query); // Run the query.
+		
+				//Check for already used usernames
+				while($row = $run_query->fetch_assoc()){ //While there are rows in the table not fetched 
+					if($row["stock_code"] == $code){
+						$errors[] = 'Stock already added!';
+					}
+				}
+				if(empty($errors)){//If error free
+			
+					//Insert
+					$query = "insert into stocks (stock_code, stock_name, stock_price) VALUES ('$code', '$name', '$price')"; 
+					$run_query = @mysqli_query($data_con, $query); // Run the query.			
+					if ($run_query) {//If it ran	
+						echo '<center><h1>Thank you the stock has been added!</h1></center>';
+					} else {
+						echo '<center><h1>Error!</h1> <p class="error">Stock addition unsuccessful due to system errors!</p></center>'; //System Error
+						echo '<p>' . mysqli_error($data_con) . '<br><br>Query: ' . $query . '</p>'; //Show Debug
+					}
+					mysqli_close($data_con); //close connection
+					include '../includes/footer_admin.html';
+					exit();
+			
+				} else { //Report user errors
+					echo '<center><h1>Error!</h1> <p class="error">';
+					foreach ($errors as $message) { echo " - $message<br>\n";}
+					echo '</p></center>';
+				} 
+			}
+			mysqli_close($data_con); //close connection		
+
+			echo "</center>";
+			//include '../includes/footer_back.php'; 
+		}else{
+			echo "<center><h2>Error you are not an admin! </h2>";
+			//include '../includes/footer.html'; 
+		}
+	}else{
+		echo "<center><h2>Error user is not logged in! </h2> </center>";		
+		exit;		
+	}
+?>
+
 <body style="background: #999999; color:black;">
 	<center>
 	<h1>Add New Stock</h1>
@@ -107,5 +116,6 @@
 	</div>
 	</center>
 </body>
+<br>
 
 <?php include '../includes/footer_admin.html'; ?>
