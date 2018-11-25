@@ -20,6 +20,47 @@
 		font-family: 'Glegoo';
 		font-size: 20px;
 	}
+	
+	.nice_button_red{
+		transition-duration:1s;
+		border: 2px solid #bf2020;
+		border-radius: 8px;
+		background-color: #999999;
+		color: black;
+	}
+	.nice_button_red:hover{
+		transition-duration:1s;
+		border-radius: 8px;
+		background-color: #bf2020;
+		color: white;
+	}
+	.nice_button_green{
+		transition-duration:1s;
+		border: 2px solid #048c0b;
+		border-radius: 8px;
+		background-color: #999999;
+		color: black;
+	}
+	.nice_button_green:hover{
+		transition-duration:1s;
+		border-radius: 8px;
+		background-color: #048c0b;
+		color: white;
+	}
+
+	.nice_button_blue{
+		transition-duration:1s;
+		border-radius: 8px;
+		border: 2px solid #0745af;
+		background-color: #999999;
+		color: black;
+	}
+	.nice_button_blue:hover{
+		transition-duration:1s;
+		border-radius: 8px;
+		background-color: #0745af;
+		color: white;
+	}
 </style>		
 <?php
 			
