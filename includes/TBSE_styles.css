@@ -49,3 +49,47 @@
 	background-color: #0745af;
 	color: white;
 }
+
+/*
+Firefox
+*/
+input[type=number] { 
+  -moz-appearance: textfield;
+  appearance: textfield;
+  margin: 0; 
+}
+/*
+Chrome
+*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+}
+
+.nice_table{
+	width: 90%;
+	border: 5px double lightgrey;
+}
+
+.nice_table_head{
+	background-color: #999999;
+}
+
+.nice_table_data{
+	background-color: #999999;
+	height: 50px;
+}
+
+.nice_table_data:hover{
+	background-color: #888888;
+}
+
+.nice_table_data:nth-child(even){
+	background-color: #909090;
+	height: 50px;
+}
+
+.nice_table_data:nth-child(even):hover{
+	background-color: #888888;
+}

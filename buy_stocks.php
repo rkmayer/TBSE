@@ -89,10 +89,10 @@
 					$query_ran = @mysqli_query($data_con, $query); // Run the query.
 				
 					if ($run_query && $query_ran) {//If both run	
-							echo '<center><h1>The stocks have been purchased for a total of: '.$total.'!</h1></center>';
-							echo '<center><h1>You now have a balance of: '.$new_balance.'!</h1></center>';
+							echo '<center><h3 style="width:90%">The stocks have been purchased for a total of: $'.$total.'</h3></center>';
+							echo '<center><h3 style="width:90%">You now have a balance of: $'.$new_balance.'</h3></center>';
 						} else {
-							echo '<center><h1>Error!</h1> <p class="error">Stock purchase unsuccessful due to system errors!</p></center>'; //System Error
+							echo '<center><h1>Error!</h1> <p class="error" style="color:red">Stock purchase unsuccessful due to system errors!</p></center>'; //System Error
 							echo '<p>' . mysqli_error($data_con) . '<br><br>Query: ' . $query . '</p>'; //Show Debug
 						}
 						mysqli_close($data_con); //close connection
@@ -118,7 +118,7 @@
 	
 	<div class="form-group centered-element">
 		<form action="buy_stocks.php" method="post">
-			<p>Amount (max 10000): <input type="number" style="background: #999999; color:black;" class="form-control grey_background" name="stock_amount" min="1" max="10000" value="<?php if (isset($_POST['stock_amount'])) echo $_POST['stock_amount']; ?>" ></p>
+			<p>Amount: <input type="number" style="background: #999999; color:black;" class="form-control grey_background" name="stock_amount" min="1" max="10000" value="<?php if (isset($_POST['stock_amount'])) echo $_POST['stock_amount']; ?>" ></p>
 			<p><input type="submit" class="submit-btn nice_button_blue " name="Enter" value="Enter"></p>
 		</form>
 	</div>

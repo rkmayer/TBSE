@@ -19,7 +19,7 @@
 	
 		$balance = $run_query->fetch_assoc();	
 		echo "<center><h2>Welcome $username </h2><p> Your account balance is currently: $".
-		$balance["balance"]."<p> Here is your current stock portfolio. </p> </center>";
+		$balance["balance"]."<p> Here is your current stock portfolio: </p> </center>";
 		
 		//###Paginiation###
 		$display = 5; //How many results to display at once
@@ -70,45 +70,38 @@
 			// Table header.
 			//Probably an easier way to do this but... (Switching from asc to desc)
 			//if($asc == 'asc'){
-				echo '<table width="100%">
-					<thead><tr>  
-						<th><a href="portfolio.php?sort=num_stocks& asc=desc">Amount owned</a></th> 
-						<th><a href="portfolio.php?sort=stock_code& asc=desc">Stock Code</a></th>
-						<th><a href="portfolio.php?sort=bought_price& asc=desc">Bought price</a></th>
-						<th><a href="portfolio.php?sort=stock_price& asc=desc">Current price</a></th>
-						<th>Possible Gain/loss ($)</th>
-						<th>Sell stock</th>
-					</tr></thead><tbody>
-				';	
-			/*}else{
-				echo '<table width="100%">
-					<thead><tr>  
-						<th><a href="portfolio.php?sort=num_stocks& asc=asc">Amount owned</a></th> 
-						<th><a href="portfolio.php?sort=stock_code& asc=asc">Stock Code</a></th>
-						<th><a href="portfolio.php?sort=bought_price& asc=asc">Bought price</a></th>
-						<th><a href="portfolio.php?sort=stock_price& asc=asc">Current price</a></th>
-						<th>Possible Gain/loss ($)</th>
-						<th>Sell stock</th>
-					</tr></thead><tbody>
-				';	
-			}//End of asc vs desc	*/		
+				echo '
+				<div style="overflow-x:auto;">
+				<table class="nice_table">
+					<thead>
+						<tr class="nice_table_head">  
+							<th><a href="portfolio.php?sort=num_stocks& asc=desc">Amount owned</a></th> 
+							<th ><a href="portfolio.php?sort=stock_code& asc=desc">Stock Code</a></th>
+							<th><a href="portfolio.php?sort=bought_price& asc=desc">Bought price</a></th>
+							<th><a href="portfolio.php?sort=stock_price& asc=desc">Current price</a></th>
+							<th>Possible Gain/loss ($)</th>
+							<th>Sell stock</th>
+						</tr>
+					</thead>
+				<tbody>
+				';		
 			while($row = $run_query->fetch_assoc()){ //While there are rows in the table not fetched 
 				$colour = ($colour=='#eeeeee' ? '#ffffff' :'#eeeeee');//Switch colours at each row
 				//Display their data
 				$profit = (($row["num_stocks"] * $row["stock_price"]) - ($row["num_stocks"] * $row["bought_price"]));
-				echo '<tr bgcolor='.$colour.'><td>' .$row["num_stocks"] .'</td><td>' .$row["stock_code"] .'</td><td>'. $row["bought_price"] .'</td><td>'. $row["stock_price"]
+				echo '<tr class="nice_table_data"><td>' .$row["num_stocks"] .'</td><td>' .$row["stock_code"] .'</td><td>'. $row["bought_price"] .'</td><td>'. $row["stock_price"]
 					.'</td><td>'. $profit.'</td><td>';
 				//Sell form action acts as a button that allows the transfer of the rows data
-				echo "<form action=step/sale_code.php> 
-					 <input name=code type=hidden value='".$row["stock_code"]."';>
-					 <input name=profit type=hidden value='".$profit."';> 
-					 <input name=num type=hidden value='".$row["num_stocks"]."';>
-					 <input name=order_id type=hidden value='".$row["order_id"]."';>
-					 <input type=submit name=submit value = Sell> </form></td>"; 	
+				echo "<form action='step/sale_code.php'> 
+						 <input name='code' type='hidden' value='".$row["stock_code"]."';>
+						 <input name='profit' type='hidden' value='".$profit."';> 
+						 <input name='num' type='hidden' value='".$row["num_stocks"]."';>
+						 <input name='order_id' type='hidden' value='".$row["order_id"]."';>
+						 <input type='submit' class='nice_button_red' name='submit' value='Sell'> </form></td>"; 	
 				echo '</tr>';	
 				
 			}
-			echo '</tbody></table>'; // Close the table.
+			echo '</tbody></table></div>'; // Close the table.
 		}else{
 			echo "No stocks owned";	
 		}	

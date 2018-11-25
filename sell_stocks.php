@@ -44,7 +44,7 @@
 	$errors = []; //If this isn't empty don't add to database
 	
 	echo "<p>You have $total_possible stocks in $code that you can sell.</p>";
-	echo "<p>If you sell all of them you would make a profit of $potential.</p>";
+	echo "<p>If you sell all of them you would make a profit of $$potential.</p>";
 	
 	//Use database
 	$query= "use TBSE";
@@ -97,8 +97,8 @@
 			$query_ran = @mysqli_query($data_con, $query); // Run the query.		
 				
 			if ($run_query && $query_ran) {//If both run	
-				echo '<center><h1>The stocks have been sold for a total of: '.$income.'!</h1></center>';
-				echo '<center><h1>You now have a balance of: '.$new_balance.'!</h1></center>';
+				echo '<center><h3 style="width:90%">The stocks have been sold for a total of: $'.$income.'</h3></center>';
+				echo '<center><h3 style="width:90%">You now have a balance of: $'.$new_balance.'</h3></center>';
 			} else {
 				echo '<center><h1>Error!</h1> <p class="error">Stock purchase unsuccessful due to system errors!</p></center>'; //System Error
 				echo '<p>' . mysqli_error($data_con) . '<br><br>Query: ' . $query . '</p>'; //Show Debug

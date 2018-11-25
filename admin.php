@@ -62,7 +62,7 @@
 					}
 					$run_query = @mysqli_query($data_con, $query); // Run the query.			
 					if ($run_query) {//If it ran	
-						echo '<h1>Thank you the stock list will update!</h1>';
+						echo '<center><h1>Thank you! <br> The stock list has updated.</h1></center>';
 					} else {
 						echo '<center><h1>Error!</h1> <p class="error">Stock list change unsuccessful due to system errors!</p></center>'; //System Error
 						echo '<p>' . mysqli_error($data_con) . '<br><br>Query: ' . $query . '</p>'; //Show Debug
@@ -91,11 +91,10 @@
 			<!--Shouldn't be able to just remove a stock-->
 			<!--<p>Remove Stock <input type="checkbox" class="form-control" name="delete" value="yes"></p> -->
 			<p><input type="submit" class="nice_button_blue" name="Update Stock" value="Update Stock">
-			<button type='button' class='nice_button_blue' onclick=location.href='admin/add.php'>Add Stock</button></p>
-		
 		</form>
 		</div>
-		<?php     include 'includes/footer.html'; 	?>	
+		<button type='button' class='nice_button_blue' onclick=location.href='admin/add.php'>Add Stock</button></p>
+		<?php include 'includes/footer.html'; 	?>	
 
 
 	</body>

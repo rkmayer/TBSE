@@ -79,40 +79,31 @@
 		';
 		//Probably an easier way to do this but... (Switching from asc to desc)
 		//if($asc == 'asc'){		
-			echo '<table width="100%" >
-				<thead><tr>
-					<th><a href="stocks.php?sort=stock_code& asc=desc">Stock code</a></th>
-					<th><a href="stocks.php?sort=stock_name& asc=desc">Company name</a></th>
-					<th><a href="stocks.php?sort=stock_price& asc=desc">Price per stock</a></th>';
+			echo '
+			<div style="overflow-x:auto;">
+			<table class="nice_table">
+				<thead>
+					<tr clas="nice_table_head">
+						<th><a href="stocks.php?sort=stock_code& asc=desc">Stock code</a></th>
+						<th><a href="stocks.php?sort=stock_name& asc=desc">Company name</a></th>
+						<th><a href="stocks.php?sort=stock_price& asc=desc">Price per stock</a></th>
+						';
 			if($admin == false){
 				echo '<th>Buy Stock</th>';
 			}
 			echo '</tr></thead><tbody>';
-				
-		/*}else{
-			echo '<table width="100%" >
-				<thead><tr>
-					<th><a href="stocks.php?sort=stock_code& asc=asc">Stock code</a></th>
-					<th><a href="stocks.php?sort=stock_name& asc=asc">Company name</a></th>
-					<th><a href="stocks.php?sort=stock_price& asc=asc">Price per stock</a></th>';
-			if($admin == false){
-				echo '<th>Buy Stock</th>';
-			}		
-			echo '</tr></thead><tbody>';
-	
-		}//End of asc vs desc*/
 		while($row = $run_query->fetch_assoc()){ //While there are rows in the table not fetched 
 			$colour = ($colour=='#eeeeee' ? '#ffffff' :'#eeeeee');//Switch colours at each row
 			//Display their data
-			echo '<tr bgcolor='.$colour.'><td>' .$row["stock_code"] .'</td><td>' .$row["stock_name"] .'</td><td>'. $row["stock_price"]. '</td>';	
+			echo '<tr class="nice_table_data"><td>' .$row["stock_code"] .'</td><td>' .$row["stock_name"] .'</td><td>'. $row["stock_price"]. '</td>';	
 			if($admin == false){//Buy form action acts as a button that allows the transfer of the rows data
 				echo "<td><form action=step/store_code.php> 
 						<input name=code type=hidden value='".$row["stock_code"]."';> 
-						<input type=submit name=submit value = Buy> </form></td>"; 				
+						<input class='nice_button_green' type='submit' name='submit' value='Buy'> </form></td>"; 				
 			}
 			echo '</tr>';		
 		}
-		echo '</tbody></table>'; // Close the table.
+		echo '</tbody></table></div>'; // Close the table.
 	}else{
 		echo "No stocks listed";	
 	}
