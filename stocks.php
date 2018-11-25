@@ -1,7 +1,7 @@
 <!DOCTYPE html>
+
 <html>
 <head>
-<!-- to do -->
 <link href='https://fonts.googleapis.com/css?family=Glegoo' rel='stylesheet'>
 <style>
 	*{
@@ -21,6 +21,10 @@
 	include 'includes/header_logged_in.html'; 
 	require_once ('mysqli_connect.php'); 
 	$colour =null;
+	
+	session_start();//Start session array to load data
+	$admin = $_SESSION['admin'];
+	
 	//Use database
 	$query= "use TBSE";
 	$run_query = @mysqli_query($data_con, $query);
@@ -62,8 +66,6 @@
 	$sort = (isset($_GET['sort'])) ?  $_GET['sort'] : 'stock_code';
 	//$sort = $sort .' '. $asc;	
 	
-	
-	
 	$query = "Select stock_code, stock_name, stock_price from stocks order by $sort limit $start, $display"; 
 	$run_query = @mysqli_query($data_con, $query); // Run the query.						
 							
@@ -81,23 +83,34 @@
 				<thead><tr>
 					<th><a href="stocks.php?sort=stock_code& asc=desc">Stock code</a></th>
 					<th><a href="stocks.php?sort=stock_name& asc=desc">Company name</a></th>
-					<th><a href="stocks.php?sort=stock_price& asc=desc">Price per stock</a></th>
-				</tr></thead><tbody>
-			';	
+					<th><a href="stocks.php?sort=stock_price& asc=desc">Price per stock</a></th>';
+			if($admin == false){
+				echo '<th>Buy Stock</th>';
+			}
+			echo '</tr></thead><tbody>';
+				
 		/*}else{
 			echo '<table width="100%" >
 				<thead><tr>
 					<th><a href="stocks.php?sort=stock_code& asc=asc">Stock code</a></th>
 					<th><a href="stocks.php?sort=stock_name& asc=asc">Company name</a></th>
-					<th><a href="stocks.php?sort=stock_price& asc=asc">Price per stock</a></th>
-				</tr></thead><tbody>
-			';	
+					<th><a href="stocks.php?sort=stock_price& asc=asc">Price per stock</a></th>';
+			if($admin == false){
+				echo '<th>Buy Stock</th>';
+			}		
+			echo '</tr></thead><tbody>';
+	
 		}//End of asc vs desc*/
 		while($row = $run_query->fetch_assoc()){ //While there are rows in the table not fetched 
 			$colour = ($colour=='#eeeeee' ? '#ffffff' :'#eeeeee');//Switch colours at each row
 			//Display their data
-			echo '<tr bgcolor='.$colour.'><td>' .$row["stock_code"] .'</td><td>' .$row["stock_name"] .'</td><td>'. $row["stock_price"]
-				. '</td></tr>';			
+			echo '<tr bgcolor='.$colour.'><td>' .$row["stock_code"] .'</td><td>' .$row["stock_name"] .'</td><td>'. $row["stock_price"]. '</td>';	
+			if($admin == false){//Buy form action acts as a button that allows the transfer of the rows data
+				echo "<td><form action=step/store_code.php> 
+						<input name=code type=hidden value='".$row["stock_code"]."';> 
+						<input type=submit name=submit value = Buy> </form></td>"; 				
+			}
+			echo '</tr>';		
 		}
 		echo '</tbody></table>'; // Close the table.
 	}else{
@@ -127,7 +140,6 @@
 	echo "</center>";	
 	include 'includes/footer_back.php'; 
 	?>
-	<!-- HTML Code -->
 
 </body>
 </html>

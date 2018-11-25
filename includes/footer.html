@@ -4,15 +4,9 @@
 	 <footer class="footer">
 		<center>
 			<br>
-			<?php
-			//session_start();//Start session array to load data
-			$admin = $_SESSION['admin'];
-			if($admin == true){
-				echo "<p><button type='button' class='nice_button_green' onclick=location.href='stocks.php'>View Stocks</button></p>";
-			}else{
-				echo "<p><button type='button' class='nice_button_green' onclick=location.href='user_stocks.php'>View Stocks</button></p>";
-			}	
-			?>
+
+			<p><button type='button' class='nice_button_green' onclick=location.href='stocks.php'>View Stocks</button></p>
+		
 		</center>
 	<!-- </footer> -->
 </body>

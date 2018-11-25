@@ -17,7 +17,7 @@
 		<div class="container">
 			
 			<?php
-			session_start();//Start session array to load data
+			//session_start();//Start session array to load data
 			$admin = $_SESSION['admin'];
 			echo "<br>";
 			if($admin == false){
